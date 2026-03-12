@@ -4,8 +4,6 @@ from models import Journal
 
 app = FastAPI()
 
-
-# Emotion detection function
 def detect_emotion(text):
 
     text = text.lower()
@@ -22,13 +20,11 @@ def detect_emotion(text):
     return "neutral"
 
 
-# Home route
 @app.get("/")
 def home():
     return "Home"
 
 
-# Get all journals
 @app.get("/api/journal")
 def get_journals():
 
@@ -39,7 +35,6 @@ def get_journals():
     return journals
 
 
-# Create journal entry
 @app.post("/api/journal")
 def create_journal(entry: dict):
 
@@ -88,4 +83,5 @@ def get_insights(userId: str):
         "totalEntries": total_entries,
         "topEmotion": top_emotion,
         "mostUsedAmbience": top_ambience
+
     }
